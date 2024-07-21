@@ -336,9 +336,9 @@ audio.src = "./assets/mahika.mp3"
         });
 
         // Touch events
-        $('.container').on('touchstart', function (e) {
+        $('.container').on('click', function (e) {
             // Prevent default touch action
-            e.preventDefault();
+            
             if (!isExpanded) {
                 
                 expandCard();

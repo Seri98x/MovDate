@@ -1,0 +1,379 @@
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Handlee&display=swap" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+    <body>
+        <audio id="audioPlayer" src="/assets/mahika.mp3" loop></audio>
+
+        <div class="container">  
+            <div class="valentines">
+              <div class="envelope"></div>
+              <div class="front"></div>
+              <div class="card">
+              <div class="text">Tap/Click Here</br> Karelle!</div>
+              <div class="heart"></div>
+
+              </div>
+              <div class="hearts">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+                <div class="four"></div>
+                <div class="five"></div>
+              </div>
+            </div>
+            <div class="shadow"></div>
+        </div>
+
+
+        <div class="letter-display">
+
+            <div class="letter-display-container">
+
+                <div class="letter-display-content">
+                    
+
+                    <div class="letter-display-content-paragraph">
+                      <h5>Hi ! Bebuuuu KZ ❤️❤️❤️</h5>
+                      <p>I know that you've been feelin' shiz lately because of your work and health.</p>
+                      <p>I am hoping that you'll get through it all and come back stronger!!!</p>
+                      <p>Please know that you've four ears now so don't hesitate to rant your shz to me.</p>
+                      <p>I really want to know you more KZ and build our connection more!</p>
+                      <p>So on this upcoming Sunday (July 28, 2024), I would like to take you on a movie date 🎥</p>
+                      <p>I have these two movies in mind that you might be interested in</p>
+
+
+
+
+                    </div>
+
+                    <div class="letter-display-content-buttons">
+                        <button class="button-19 button-left" role="button" onclick="showMovie1Poster()">Movie 1</button>
+                        <button class="button-19 button-right" role="button" onclick="showMovie2Poster()">Movie 2</button>
+                    </div>
+
+                    <div class="no-container">
+                        <button class="button-19 button-no" role="button" onclick="noButton()">No, I don't want to be on a date with you </button>
+                    </div>
+
+
+                </div>
+
+            </div>
+ 
+             
+            
+        </div>
+
+
+        <div class="movie-1-display">
+            <div class="button-book-movie-1">
+                <button class="button-19 button-left button-movie-1-close" role="button" onclick="unshowMovie1Poster()">X</button>
+                <button class="button-19 button-left button-movie-1-accept" role="button" onclick="showTicketMovie1()">Pick this movie</button>
+               
+            </div>
+        </div>
+
+        <div class="movie-2-display">
+            <div class="button-book-movie-2">
+                <button class="button-19 button-right button-movie-2-close" role="button" onclick="unshowMovie2Poster()">X</button>
+                <button class="button-19 button-right button-movie-2-accept" role="button" onclick="showTicketMovie2()">Pick this movie</button>
+            </div>
+        </div>
+
+
+    
+            <div class="letter-accept-display">
+
+                <div class="letter-display-container">
+    
+                    <div class="letter-display-content">
+                        
+    
+                        <div class="letter-display-content-paragraph">
+                          <div class="rose-container">
+                            <img src="./assets/rose.png">
+                          </div>
+                          <h5>Wise choice bebuuu!</h5>
+                          <p>Picked : Deadpool & Wolverine</p>
+                          <p>Send the screenshot to me po 😊😊😊 </p>
+  
+                        </div>
+    
+                     
+    
+                        <div class="no-container">
+                            <button class="button-19 button-accept-back-movie-1"  role="button" onclick="gobackMovie1()">X</button>
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+     
+                 
+                
+            </div>
+
+            <div class="letter-accept-display-2">
+
+                <div class="letter-display-container">
+    
+                    <div class="letter-display-content">
+                        
+    
+                        <div class="letter-display-content-paragraph">
+                          <div class="rose-container">
+                            <img src="./assets/rose.png">
+                          </div>
+                          <h5>Cuteeee choice bebuuu!</h5>
+                          <p>Picked : Inside out 2</p>
+                          <p>Send the screenshot to me po 😊😊😊 </p>
+  
+                        </div>
+    
+                     
+    
+                        <div class="no-container">
+                            <button class="button-19 button-accept-back-movie-1"  role="button" onclick="gobackMovie2()">X</button>
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+     
+                 
+                
+            </div>
+
+ 
+      
+        
+        <script>
+
+
+
+var randomPositions = [
+    { left: 20, top: 30 },
+    { left: 50, top: 80 },
+    { left: 100, top: 150 },
+    { left: 200, top: 250 },
+    { left: 300, top: 120 },
+    { left: 150, top: 180 },
+    { left: 80, top: 300 },
+    { left: 240, top: 50 },
+    { left: 170, top: 220 },
+    { left: 90, top: 130 }
+];
+
+var messages = [
+    "🤪",
+    "😝",
+    "😛",
+    "ayaw mo po talaga bebu ? 😕",
+    "Wala na po susunduin kita diyan balaka",
+    "Disabled button HAHAHA pili ka na movie :)"
+];
+
+var currentMessageIndex = 0;
+
+
+
+            function noButton(){
+                var randomIndex = Math.floor(Math.random() * randomPositions.length);
+    var randomPosition = randomPositions[randomIndex];
+
+    var randomIndexMessage = Math.floor(Math.random() * messages.length);
+    currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+    var randomMessage = messages[currentMessageIndex];
+
+    // Assuming you want to display this message somewhere in your HTML
+
+
+
+    
+
+    
+
+    var button = $('.button-no.button-19');
+    var buttonAfter = $('.button-19.button-nobutton-19:after');
+ 
+
+
+
+
+    button.text(randomMessage);
+    if (currentMessageIndex === messages.length -1) {
+ 
+        var style = `
+        background-clip: padding-box;
+        background-color: grey !important; /* Change color as needed */
+        border: solid transparent;
+        border-radius: 16px;
+        border-width: 0 0 4px;
+        bottom: -4px;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    `;
+
+    $('<style>')
+        .prop('type', 'text/css')
+        .html('.button-19:after {' + style + '}')
+        .appendTo('head');
+
+       
+        button.css({
+         position: 'inherit',
+            backgroundColor: "grey"
+         
+        });
+        
+      
+      
+
+
+        button.prop('disabled', true);
+    } else {
+        button.css({
+        left: randomPosition.left + 'px',
+        top: randomPosition.top + 'px',
+        position: 'absolute'
+    });
+        button.prop('disabled', false);
+    }
+
+ 
+ 
+            }
+                 function showMovie1Poster() {
+                    $('.movie-1-display').addClass('show-movie-1-poster');
+                    $('.letter-display').removeClass('show-letter-display');
+
+        }
+
+        function unshowMovie1Poster() {
+        
+                    $('.movie-1-display').removeClass('show-movie-1-poster');
+                    $('.letter-display').addClass('show-letter-display');
+
+        }
+
+        function gobackMovie1(){
+            $('.letter-accept-display').removeClass('show-letter-accept-display');
+        }
+
+        function gobackMovie2(){
+            $('.letter-accept-display-2').removeClass('show-letter-accept-display');
+        }
+
+
+        function unshowMovie2Poster() {
+                    $('.movie-2-display').removeClass('show-movie-2-poster');
+                    $('.letter-display').addClass('show-letter-display');
+
+        }
+
+        function showMovie2Poster() {
+                    $('.movie-2-display').addClass('show-movie-2-poster');
+                    $('.letter-display').removeClass('show-letter-display');
+
+        }
+
+        function showTicketMovie1(){
+            $('.letter-accept-display').addClass('show-letter-accept-display');
+        }
+
+        function showTicketMovie2(){
+            $('.letter-accept-display-2').addClass('show-letter-accept-display');
+        }
+
+          $(document).ready(function () {
+        var isExpanded = false;
+        var audio = document.createElement("AUDIO")
+document.body.appendChild(audio);
+audio.src = "./assets/mahika.mp3"
+
+
+   
+        function expandCard() {
+            $('.card').stop().animate({
+                top: '-90px'
+            }, 'slow', function () {
+                $('.letter-display').addClass('show-letter-display');
+                isExpanded = true;
+            });
+            audio.play()
+        }
+
+        function collapseCard() {
+            $('.card').stop().animate({
+                top: 0
+            }, 'slow', function () {
+                $('.letter-display').removeClass('show-letter-display');
+                isExpanded = false;
+            });
+            
+        }
+
+        // Mouse events
+        $('.container').click(function () {
+            if (!isExpanded) {
+                expandCard();
+            } else {
+                collapseCard();
+            }
+        });
+
+        // Touch events
+        $('.container').on('touchstart', function (e) {
+            // Prevent default touch action
+            e.preventDefault();
+            if (!isExpanded) {
+                
+                expandCard();
+            } else {
+                collapseCard();
+            }
+        });
+    });
+
+
+    const body = document.querySelector("body");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "fas fa-heart";
+    heart.style.left = (Math.random() * 100)+"vw";
+    heart.style.animationDuration = (Math.random()*3)+2+"s"
+    body.appendChild(heart);
+}
+setInterval(createHeart,100);
+setInterval(function name(params) {
+    var heartArr = document.querySelectorAll(".fa-heart")
+    if (heartArr.length > 200) {
+       heartArr[0].remove()
+    }
+    //console.log(heartArr);
+},100)
+
+        </script>
+
+
+<script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+        
+
+       
+    </body>
+</head>
+
